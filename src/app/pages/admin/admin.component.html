@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="title-block">Blogs</div>
+  <main>
+    <input type="text" name="" id="" placeholder="title here..." [(ngModel)]="title"/>
+    <textarea name="" id="" placeholder="text here..." [(ngModel)]="text"></textarea>
+    <input type="text" name="" id="" placeholder="author here..." [(ngModel)]="author"/>
+    <input type="button" value="Add" class="input button" (click)="addBlog()" *ngIf="!saveCheck"/>
+    <input type="button" value="Save blog" class="input button save" (click)="saveBlog()" *ngIf="saveCheck"/>
+    <hr />
+    <table>
+      <thead>
+        <tr>
+          <td class="id">#</td>
+          <td>Title</td>
+          <td>Text</td>
+          <td>Author</td>
+          <td>Edit</td>
+          <td>Delete</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let info of blogs; index as num">
+          <td class="id">{{ num }}</td>
+          <td>{{ info.title |slice:0:10 }}<span *ngIf="info.title.length>10">...</span></td>
+          <td>{{ info.text |slice:0:10}}<span *ngIf="info.text.length>10">...</span></td>
+          <td>{{ info.author }}</td>
+          <td><input type="button" value="Edit" (click)="edit(info)"></td>
+          <td><input type="button" value="Delete" class="bigger" (click)="deleteBlog(info.id)"></td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
+</div>

@@ -1,0 +1,15 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.main{
+    max-width: 1440px;
+    display: flex;
+    padding-left: 30px;
+    .blog{
+        margin:20px 55px 0px 0px;
+        width: 450px;
+        height: 500px;
+    }
+}
